@@ -3,53 +3,80 @@
   <head>
     <meta charset="utf-8">
     <title>New Tab</title>
-	<style type="text/css">
-
-	*{
-			margin:0;
-			padding:0;
-			list-style-type:none;
-	}
-
-	.content{
-		width: 800px; 
-		margin: 0 auto;
-	}
-
-	.header{
-		height: 160px;
-	}
-
-	.tab-link{
-		height: 40px;
-	}
-
-   .tab-link{
-	   color: blue;
-   }
-
-
-	h1{
-		color: blue;
-	}
-
-	
-		
+    <style type="text/css">
+    	*{margin:0;padding:0;list-style-type:none;}
+    	ul{width:672px;margin:20px auto;display:flex;flex-wrap:wrap}
+    	li{width:112px;height:112px;display:flex;align-items:center;}
+    	li:hover{background-color:#E5E7E8;border-radius:4px;cursor:pointer;}
+    	.iconBox{width:48px;height:48px;border-radius:50%;text-align:center;line-height:48px;margin:0 auto;background-color:#F1F3F4;display:flex;align-items:center;}
+        .iconBox span{width:24px;height:24px;display:block;border-radius:50%;line-height:24px;margin:0 auto;}
+    	.iconBox .iconfont{font-size:24px;}
     </style>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_768040_9vbtmft3fu5.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    	window.onload=function(){
+    		var iconInfo=[
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t',
+                    'iconUrl':'http://shanju.fun/prototype/makerCenter3.0'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t',
+					'iconUrl':'http://shanju.fun/prototype/app/3.0/start.html'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			},
+    			{
+    				'iconColor':'#35CDE2',
+    				'iconName':'appicon-text-t'
+    			}
+    		]
+    		var liCont='';
+            var iconurl='';
+    		for(var i=0;i<iconInfo.length;i++){
+                if(iconInfo[i].iconUrl!=undefined){
+                    iconurl=iconInfo[i].iconUrl;
+                }else{
+                    iconurl='javascript:;'
+                }
+    			liCont+='<li>'+
+    						'<a href="'+iconurl+'" class="iconBox">'+
+  								'<span class="icon iconfont '+iconInfo[i].iconName+'"  style="color:'+iconInfo[i].iconColor+'"></span>'+
+  							'</a>'+
+  						'</li>';
+    		}
+    		$('ul').append(liCont);
+
+            $('ul').on('click','li',function(){
+                if($(this).find('a').attr('href')=='javascript:;'){
+                    alert('无可跳转的链接');
+                }
+            })
+    	}
+    </script>
   </head>
-
-
   <body>
-	<div class="content">
-	<div class="header"><h1>tab</h1></div>
-	
-	<div class="tab-link">
-		<a href="http://shanju.fun/prototype/makerCenter3.0" target="_blank">制作端</a>
-	</div>
-	<div class="tab-link">
-		<a href="http://shanju.fun/prototype/app/3.0/start.html" target="_blank">客户端</a>
-	</div>
-
-</div>
+  	<ul></ul>
   </body>
 </html>
